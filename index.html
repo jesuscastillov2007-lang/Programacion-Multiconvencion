@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght=400;600;700&family=Poppins:wght=300;400;500;600&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- VARIABLES DE LA PALETA MORADO, NARANJA CLARO Y BLANCO --- */
+        /* --- VARIABLES DE LA PALETA --- */
         :root {
             --bg-pagina: #ffffff;
             --bg-tarjeta: #f9f8ff;
@@ -36,17 +36,17 @@
         body {
             background-color: var(--bg-pagina);
             color: var(--texto-principal);
-            line-height: 1.6;
+            line-height: 1.4;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* --- DECORACIÓN: LLAMAS A LOS LADOS LATERALES --- */
+        /* --- DECORACIÓN COMPACTA EN BORDES --- */
         body::before, body::after {
             content: "";
             position: fixed;
             top: 0;
-            width: 120px;
+            width: 60px;
             height: 100vh;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000' preserveAspectRatio='none'%3E%3Cpath d='M0,1000 Q40,900 20,800 T30,600 T10,400 T40,200 T0,0 L0,1000 Z' fill='%23ff9f43' opacity='0.12'/%3E%3Cpath d='M0,1000 Q20,850 40,750 T10,550 T30,350 T20,150 L0,0 L0,1000 Z' fill='%235f27cd' opacity='0.06'/%3E%3C/svg%3E");
             background-size: 100% 100%;
@@ -57,212 +57,175 @@
         body::before { left: 0; }
         body::after { right: 0; transform: scaleX(-1); }
 
-        /* --- ANIMACIONES --- */
-        @keyframes aparicionSuave {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animar { animation: aparicionSuave 1s var(--curva) forwards; }
-
-        /* --- MEMBRETE OFICIAL DE LA IGLESIA --- */
+        /* --- MEMBRETE OFICIAL --- */
         .membrete-contenedor {
             background-color: var(--bg-tarjeta);
-            border-bottom: 3px double var(--morado-principal);
-            padding: 2.5rem 1.5rem;
+            border-bottom: 2px solid var(--morado-principal);
+            padding: 1rem 1rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(95, 39, 205, 0.05);
         }
         .membrete-texto {
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             color: var(--morado-oscuro);
             max-width: 700px;
             margin: 0 auto;
         }
-        .linea-1 { font-size: 1.6rem; line-height: 1.2; margin-bottom: 0.3rem; color: var(--morado-principal); }
-        .linea-2 { font-size: 1.25rem; line-height: 1.3; margin-bottom: 0.2rem; }
-        .linea-3 { font-size: 1.1rem; line-height: 1.3; color: var(--texto-suave); margin-bottom: 0.5rem; }
+        .linea-1 { font-size: 1.2rem; line-height: 1.1; color: var(--morado-principal); }
+        .linea-2 { font-size: 1rem; line-height: 1.1; }
+        .linea-3 { font-size: 0.9rem; line-height: 1.1; color: var(--texto-suave); }
         .linea-sede { 
-            font-size: 1.1rem; 
-            letter-spacing: 4px; 
+            font-size: 0.85rem; 
+            letter-spacing: 2px; 
             font-weight: 700; 
             color: var(--texto-principal);
-            border-top: 1px solid var(--lineas-divisorias);
             display: inline-block;
-            padding-top: 0.4rem;
             margin-top: 0.2rem;
         }
 
-        /* --- SECCIÓN DISEÑO DEL TÍTULO ENTRELAZADO --- */
+        /* --- SECCIÓN DISEÑO DEL TÍTULO COMPACTO --- */
         .seccion-tema {
             text-align: center;
-            padding: 3.5rem 1.5rem 1.5rem;
+            padding: 1.2rem 1rem 0.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .subtitulo-convencion {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             color: var(--morado-principal);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.3rem;
         }
 
-        /* CONTENEDOR ARTÍSTICO DEL TÍTULO */
+        /* CONTENEDOR REDUCIDO DEL TÍTULO */
         .emblema-titulo {
             position: relative;
             display: inline-block;
             text-transform: uppercase;
             font-family: 'Oswald', sans-serif;
-            line-height: 0.85;
-            margin-bottom: 1rem;
-            padding: 0 1rem;
+            line-height: 0.9;
+            margin-bottom: 0.2rem;
         }
 
-        /* Degradado de fuego reutilizable en las letras */
         .texto-fuego {
-            background: linear-gradient(0deg, var(--naranja-fuego) 0%, var(--naranja-claro) 60%, #fff2e6 100%);
+            background: linear-gradient(0deg, var(--naranja-fuego) 0%, var(--naranja-claro) 60%, #ff4d0d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
             display: inline-block;
         }
 
-        /* Bloque Superior: EL VALOR DE LA */
         .fila-superior {
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
 
         .mini-el {
-            font-size: 1.6rem;
+            font-size: 1.1rem;
             font-family: 'Cinzel', serif;
             color: var(--morado-oscuro);
             -webkit-text-fill-color: var(--morado-oscuro);
-            margin-right: 0.6rem;
+            margin-right: 0.3rem;
             font-weight: 800;
-            align-self: flex-start;
-            margin-top: 0.4rem;
         }
 
         .letra-v-gigante {
-            font-size: 6rem;
+            font-size: 2.8rem;
             font-family: 'Cinzel', serif;
             font-weight: 700;
             line-height: 0.8;
-            margin-right: -0.1rem;
             display: inline-block;
         }
 
         .resto-valor {
-            font-size: 4rem;
-            letter-spacing: 2px;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
             display: inline-block;
-            line-height: 1;
         }
 
         .mini-de-la {
-            font-size: 1.3rem;
+            font-size: 0.85rem;
             font-family: 'Cinzel', serif;
             color: var(--morado-oscuro);
             -webkit-text-fill-color: var(--morado-oscuro);
-            margin-left: 0.6rem;
+            margin-left: 0.4rem;
             font-weight: 800;
-            line-height: 1.1;
-            width: 50px;
+            line-height: 1;
             text-align: left;
-            align-self: center;
         }
 
-        /* Bloque Inferior: UNIDAD con la Antorcha */
         .fila-inferior {
-            font-size: 5.2rem;
-            letter-spacing: 3px;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 0.2rem;
         }
 
-        /* LA ANTORCHA EN MOVIMIENTO */
+        /* ANTORCHA REDUCIDA */
         .antorcha-contenedor {
             display: inline-flex;
             flex-direction: column;
             align-items: center;
             position: relative;
-            width: 50px;
-            height: 90px;
-            margin: 0 0.2rem;
+            width: 25px;
+            height: 45px;
+            margin: 0 0.1rem;
             vertical-align: middle;
-            transform: translateY(-5px);
         }
 
-        /* Base metálica de la antorcha */
         .antorcha-cuerpo {
-            width: 12px;
-            height: 45px;
+            width: 7px;
+            height: 22px;
             background: linear-gradient(90deg, #594218, #d9a036, #594218);
             clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 30% 100%);
-            margin-top: 18px;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        .antorcha-copa {
-            width: 24px;
-            height: 10px;
-            background: linear-gradient(90deg, #735620, #f2c166, #735620);
-            border-radius: 4px 4px 2px 2px;
-            position: absolute;
-            top: 12px;
+            margin-top: 10px;
         }
 
-        /* Llamas vivas y dinámicas de la antorcha */
+        .antorcha-copa {
+            width: 13px;
+            height: 5px;
+            background: linear-gradient(90deg, #735620, #f2c166, #735620);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+        }
+
         .fuego-antorcha {
             position: absolute;
-            top: -16px;
-            width: 26px;
-            height: 32px;
+            top: -8px;
+            width: 14px;
+            height: 16px;
             background: radial-gradient(circle at 50% 80%, #ffffff 10%, var(--naranja-claro) 40%, var(--naranja-fuego) 70%, transparent 90%);
             border-radius: 50% 50% 20% 20%;
-            filter: drop-shadow(0 0 8px var(--naranja-claro));
+            filter: drop-shadow(0 0 4px var(--naranja-claro));
             animation: llamarada 0.15s ease-in-out infinite alternate;
-            transform-origin: bottom center;
         }
 
         @keyframes llamarada {
-            0% { transform: scale(1) skewX(-2deg); filter: brightness(1); }
-            100% { transform: scale(1.15) skewX(3deg) translateY(-2px); filter: brightness(1.2); }
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1) translateY(-1px); }
         }
 
         .cita-biblica {
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             color: var(--texto-suave);
             font-style: italic;
-            letter-spacing: 2px;
-            margin-top: 0.5rem;
             font-weight: 600;
-        }
-
-        .divisor-oro {
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--naranja-claro), transparent);
-            margin: 1.5rem auto 0;
         }
 
         /* --- CONTENEDOR PRINCIPAL --- */
         .cronograma-seccion {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1.5rem 6rem;
+            padding: 1rem 1rem 2rem;
             position: relative;
             z-index: 5;
         }
@@ -271,38 +234,27 @@
         .bloque-dia {
             background-color: var(--bg-tarjeta);
             border: 1px solid rgba(95, 39, 205, 0.1);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 4rem;
-            box-shadow: 0 10px 30px rgba(95, 39, 205, 0.03);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(95, 39, 205, 0.03);
         }
 
         .encabezado-dia {
             font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             color: var(--morado-principal);
             border-bottom: 2px solid var(--naranja-claro);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
+            padding-bottom: 0.2rem;
+            margin-bottom: 0.8rem;
         }
 
-        .imagen-programa {
-            width: 100%;
-            max-height: 350px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--lineas-divisorias);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        /* --- FILAS DE HORARIOS --- */
+        /* --- FILAS DE HORARIOS COMPACTAS --- */
         .actividad-item {
             display: grid;
-            grid-template-columns: 140px 1fr;
-            padding: 1.2rem 0;
+            grid-template-columns: 85px 1fr;
+            padding: 0.4rem 0;
             border-bottom: 1px dashed var(--lineas-divisorias);
             align-items: baseline;
         }
@@ -311,112 +263,108 @@
 
         .hora {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: var(--morado-principal);
             font-weight: 600;
-            white-space: nowrap;
         }
 
-        .detalles-actividad { font-size: 1.05rem; color: var(--texto-principal); }
+        .detalles-actividad { font-size: 0.9rem; color: var(--texto-principal); }
         .detalles-actividad strong { color: var(--morado-oscuro); font-weight: 600; }
 
-        .sub-lista {
-            margin-top: 0.5rem;
-            padding-left: 1.2rem;
-            list-style-type: square;
+        .sub-lista-inline {
+            display: inline-block;
+            margin-left: 0.3rem;
             color: var(--texto-suave);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
-        .sub-lista li { margin-bottom: 0.3rem; }
+        .sub-lista-inline span::after { content: " • "; }
+        .sub-lista-inline span:last-child::after { content: ""; }
 
         .actividad-alterna {
-            margin-top: 0.4rem;
-            padding: 0.4rem 0.8rem;
+            margin-top: 0.2rem;
+            padding: 0.2rem 0.5rem;
             background-color: #ffffff;
             border-left: 2px solid var(--naranja-claro);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--texto-suave);
             border-radius: 0 4px 4px 0;
         }
 
-        /* --- NOCHES DESTACADAS --- */
+        /* --- NOCHES EN FORMATO GRID COMPACTO --- */
         .bloque-especial {
             background-color: #f1f0ff;
-            border-left: 4px solid var(--morado-principal);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 12px 12px 0;
+            border-left: 3px solid var(--morado-principal);
+            padding: 0.8rem 1rem;
+            margin-top: 0.8rem;
+            border-radius: 0 8px 8px 0;
         }
 
         .bloque-especial h3 {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.05rem;
             text-transform: uppercase;
             color: var(--morado-oscuro);
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+
+        .grid-noche {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.3rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .grid-noche div {
+            line-height: 1.3;
         }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 4rem 1.5rem;
+            padding: 1.5rem 1rem;
             background-color: var(--bg-tarjeta);
             border-top: 1px solid var(--lineas-divisorias);
             color: var(--texto-suave);
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 5;
+            font-size: 0.8rem;
         }
-        footer p { margin-bottom: 0.4rem; }
+        footer p { margin-bottom: 0.2rem; }
         .lema-final {
             font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: var(--morado-principal);
-            margin-top: 0.6rem;
+            margin-top: 0.4rem;
         }
 
-        /* Adaptación móvil exacta */
-        @media (max-width: 768px) {
-            body::before, body::after { width: 40px; opacity: 0.06; }
-            .membrete-contenedor { padding: 1.8rem 1rem; }
-            .linea-1 { font-size: 1.3rem; }
-            .linea-2 { font-size: 1.1rem; }
-            .linea-3, .linea-sede { font-size: 0.95rem; }
-            
-            /* Escala del título en teléfonos */
-            .emblema-titulo { transform: scale(0.6); margin: -1.5rem 0; }
-            .subtitulo-convencion { font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 0.2rem; }
-            
-            .bloque-dia { padding: 1.5rem; }
+        /* Adaptación móvil exacto sin scroll horizontal */
+        @media (max-width: 600px) {
+            body::before, body::after { display: none; }
             .actividad-item {
-                grid-template-columns: 1fr;
-                gap: 0.2rem;
-                padding: 1rem 0;
+                grid-template-columns: 75px 1fr;
+                gap: 0.3rem;
             }
-            .hora { margin-bottom: 0.2rem; }
+            .grid-noche {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- MEMBRETE OFICIAL CENTRADO -->
-    <header class="membrete-contenedor animar">
+    <header class="membrete-contenedor">
         <div class="membrete-texto">
             <div class="linea-1">Iglesia de Dios Pentecostal M.I.</div>
-            <div class="linea-2">Región Eclesiástica de Venezuela</div>
-            <div class="linea-3">Zona Centro Occidente III</div>
-            <div class="linea-sede">Barinas Estado Barinas</div>
+            <div class="linea-2">Región Eclesiástica de Venezuela — Zona Centro Occidente III</div>
+            <div class="linea-sede">Barinas, Estado Barinas</div>
         </div>
     </header>
 
-    <!-- IDENTIFICACIÓN DE LA MULTICONVENCIÓN Y TEMA DISEÑADO -->
-    <section class="seccion-tema animar">
+    <!-- IDENTIFICACIÓN DE LA MULTICONVENCIÓN Y TEMA -->
+    <section class="seccion-tema">
         <div class="subtitulo-convencion">III Multiconvención Zonal</div>
         
-        <!-- COMPOSICIÓN ARTÍSTICA CORREGIDA -->
         <div class="emblema-titulo">
             <div class="fila-superior">
                 <span class="mini-el">EL</span>
@@ -436,17 +384,14 @@
         </div>
 
         <div class="cita-biblica">SALMOS 133:1</div>
-        <div class="divisor-oro"></div>
     </section>
 
     <!-- CRONOGRAMA COMPLETO -->
-    <main class="cronograma-seccion animar">
+    <main class="cronograma-seccion">
 
         <!-- ================= VIERNES ================= -->
         <div class="bloque-dia">
             <h2 class="encabezado-dia">Viernes 7 de Agosto</h2>
-            
-            <img src="imagen-viernes.jpg" alt="Apertura Convención" class="imagen-programa" onerror="this.style.display='none'">
 
             <div class="actividad-item">
                 <div class="hora">07:00 a.m.</div>
@@ -461,34 +406,31 @@
             <div class="actividad-item">
                 <div class="hora">09:15 a.m.</div>
                 <div class="detalles-actividad">
-                    <strong>Apertura oficial de la Tercera Convención Unida</strong><br>
-                    <span style="color: var(--morado-principal);">a/c:</span> Presbítero M.O. Javier Díaz
-                    <ul class="sub-lista">
-                        <li>Himno Nacional</li>
-                        <li>Himno del Concilio</li>
-                        <li>Himno Oficial de la Convención</li>
-                    </ul>
+                    <strong>Apertura oficial de la Convención</strong> — Presbítero M.O. Javier Díaz
+                    <div class="sub-lista-inline">
+                        (<span>Himno Nacional</span><span>Himno del Concilio</span><span>Himno Oficial</span>)
+                    </div>
                 </div>
             </div>
 
             <div class="actividad-item">
                 <div class="hora">10:00 a.m.</div>
-                <div class="detalles-actividad"><strong>Devocional:</strong> a/c Comité de Altar</div>
+                <div class="detalles-actividad"><strong>Devocional:</strong> Comité de Altar</div>
             </div>
 
             <div class="actividad-item">
                 <div class="hora">10:30 a.m.</div>
-                <div class="detalles-actividad"><strong>Predicación:</strong> a/c Comité Ejecutivo</div>
+                <div class="detalles-actividad"><strong>Predicación:</strong> Comité Ejecutivo</div>
             </div>
 
             <div class="actividad-item">
                 <div class="hora">11:00 a.m.</div>
-                <div class="detalles-actividad"><strong>Reunión de negocios:</strong> Primera Asamblea del Departamento de Misiones</div>
+                <div class="detalles-actividad"><strong>Reunión de negocios:</strong> 1ª Asamblea Depto. Misiones</div>
             </div>
 
             <div class="actividad-item">
                 <div class="hora">12:30 p.m.</div>
-                <div class="detalles-actividad" style="font-weight: 500; color: var(--naranja-claro);">🔥 Almuerzo</div>
+                <div class="detalles-actividad" style="font-weight: 600; color: var(--naranja-fuego);">🔥 Almuerzo</div>
             </div>
 
             <div class="actividad-item">
@@ -499,10 +441,9 @@
             <div class="actividad-item">
                 <div class="hora">03:00 p.m.</div>
                 <div class="detalles-actividad">
-                    <strong>Asamblea de ADAMES</strong>
+                    <strong>Asamblea:</strong> ADAMES
                     <div class="actividad-alterna">
-                        <em>Actividad alterna:</em><br>
-                        <strong>Conferencia</strong> a/c del Evangelista Nieves de Moncada
+                        <em>Actividad alterna:</em> <strong>Conferencia</strong> a/c Evangelista Nieves de Moncada
                     </div>
                 </div>
             </div>
@@ -513,20 +454,16 @@
             </div>
 
             <div class="bloque-especial">
-                <h3>✨ Noche de Avivamiento</h3>
-                
-                <div class="actividad-item" style="padding: 0.6rem 0; border: none;">
-                    <div class="hora">07:30 p.m.</div>
-                    <div class="detalles-actividad">
-                        <strong>Apertura:</strong> Yelitza de Molina (Presidenta de ADAMES)<br>
-                        <strong>Dirección:</strong> Comité de Altar<br>
-                        <strong>Saludos:</strong> a/c Enlaces (Misiones, ADAMES, Joyas de Cristo)<br>
-                        <strong>Dádivas:</strong> a/c Tesorera de ADAMES y Misiones<br>
-                        <strong>Presentación del predicador:</strong> Presbítero<br>
-                        <strong>Predicador:</strong> Evangelista José Álvarez<br>
-                        <strong>Lectura del programa:</strong> Keila de Roque<br>
-                        <strong>Despedida:</strong> Pastor Ángel Molina (Coordinador de Misiones)
-                    </div>
+                <h3>✨ Noche de Avivamiento (07:30 p.m.)</h3>
+                <div class="grid-noche">
+                    <div><strong>Apertura:</strong> Yelitza de Molina (Pres. ADAMES)</div>
+                    <div><strong>Dirección:</strong> Comité de Altar</div>
+                    <div><strong>Saludos:</strong> Enlaces (Misiones, ADAMES, Joyas)</div>
+                    <div><strong>Dádivas:</strong> Tesorera ADAMES y Misiones</div>
+                    <div><strong>Presentación Predicador:</strong> Presbítero</div>
+                    <div><strong>Predicador:</strong> Evangelista José Álvarez</div>
+                    <div><strong>Lectura del programa:</strong> Keila de Roque</div>
+                    <div><strong>Despedida:</strong> Pastor Ángel Molina (Coord. Misiones)</div>
                 </div>
             </div>
         </div>
@@ -534,12 +471,10 @@
         <!-- ================= SÁBADO ================= -->
         <div class="bloque-dia">
             <h2 class="encabezado-dia">Sábado 8 de Agosto</h2>
-            
-            <img src="imagen-sabado.jpg" alt="Actividades Sábado" class="imagen-programa" onerror="this.style.display='none'">
 
             <div class="actividad-item">
                 <div class="hora">08:00 a.m.</div>
-                <div class="detalles-actividad" style="color: var(--naranja-claro);">🔥 Desayuno</div>
+                <div class="detalles-actividad" style="font-weight: 600; color: var(--naranja-fuego);">🔥 Desayuno</div>
             </div>
 
             <div class="actividad-item">
@@ -554,7 +489,7 @@
 
             <div class="actividad-item">
                 <div class="hora">12:30 p.m.</div>
-                <div class="detalles-actividad" style="font-weight: 500; color: var(--naranja-claro);">🔥 Almuerzo</div>
+                <div class="detalles-actividad" style="font-weight: 600; color: var(--naranja-fuego);">🔥 Almuerzo</div>
             </div>
 
             <div class="actividad-item">
@@ -569,63 +504,57 @@
 
             <div class="actividad-item">
                 <div class="hora">06:00 p.m.</div>
-                <div class="detalles-actividad" style="font-weight: 500; color: var(--naranja-claro);">🔥 Cena</div>
+                <div class="detalles-actividad" style="font-weight: 600; color: var(--naranja-fuego);">🔥 Cena</div>
             </div>
 
             <div class="bloque-especial">
-                <h3>🤝 Noche de Unidad</h3>
-                
-                <div class="actividad-item" style="padding: 0.6rem 0; border: none;">
-                    <div class="hora">07:00 p.m.</div>
-                    <div class="detalles-actividad">
-                        <strong>Apertura:</strong> a/c Isaí Rangel (Presidente Zonal de AJEC)<br>
-                        <strong>Desfile:</strong> Moderado por Yeila de Flores y el Pastor Víctor Solórzano<br>
-                        <strong>Dirección:</strong> a/c Comité de Altar<br>
-                        <strong>Saludos:</strong> a/c Enlaces (AJEC, Heraldos de Cristo)<br>
-                        <strong>Dádivas:</strong> a/c Tesoreros de AJEC y Heraldos de Cristo<br>
-                        <strong>Presentación del predicador:</strong> a/c Juan Castillo (Presidente Zonal de los Heraldos)<br>
-                        <strong>Predicador:</strong> Evangelista José Álvarez<br>
-                        <strong>Cierre protocolar:</strong> Juramentación, lectura del programa y despedida a/c Presbítero M.O. Javier Díaz
-                    </div>
+                <h3>🤝 Noche de Unidad (07:00 p.m.)</h3>
+                <div class="grid-noche">
+                    <div><strong>Apertura:</strong> Isaí Rangel (Pres. Zonal AJEC)</div>
+                    <div><strong>Desfile:</strong> Yeila de Flores y Pr. Víctor Solórzano</div>
+                    <div><strong>Dirección:</strong> Comité de Altar</div>
+                    <div><strong>Saludos:</strong> Enlaces (AJEC, Heraldos de Cristo)</div>
+                    <div><strong>Dádivas:</strong> Tesoreros de AJEC y Heraldos</div>
+                    <div><strong>Presentación Predicador:</strong> Juan Castillo (Pres. Heraldos)</div>
+                    <div><strong>Predicador:</strong> Evangelista José Álvarez</div>
+                    <div><strong>Cierre protocolar:</strong> Juramentación y despedida a/c Presbítero M.O. Javier Díaz</div>
                 </div>
             </div>
         </div>
 
         <!-- ================= DOMINGO ================= -->
         <div class="bloque-dia">
-            <h2 class="encabezado-dia">Domingo 9 de Agosto (Cierre y Confraternidad)</h2>
-            
-            <img src="imagen-domingo.jpg" alt="Cierre del Evento" class="imagen-programa" onerror="this.style.display='none'">
+            <h2 class="encabezado-dia">Domingo 9 de Agosto (Cierre)</h2>
 
             <div class="actividad-item">
                 <div class="hora">09:00 a.m.</div>
-                <div class="detalles-actividad" style="color: var(--naranja-claro);">🔥 Desayuno</div>
+                <div class="detalles-actividad" style="font-weight: 600; color: var(--naranja-fuego);">🔥 Desayuno</div>
             </div>
 
             <div class="actividad-item">
                 <div class="hora">10:00 a.m.</div>
-                <div class="detalles-actividad"><strong>Devocional:</strong> a/c Comité de Altar</div>
-            </div>
-
-            <!-- ACTIVIDADES DEL DOMINGO SIN MARCA DE HORA -->
-            <div class="actividad-item">
-                <div class="hora">—</div>
-                <div class="detalles-actividad"><strong>Reflexión:</strong> a/c Presbítero M.O. Javier Díaz</div>
+                <div class="detalles-actividad"><strong>Devocional:</strong> Comité de Altar</div>
             </div>
 
             <div class="actividad-item">
-                <div class="hora">—</div>
-                <div class="detalles-actividad" style="font-weight: 600; color: var(--morado-principal);">🏁 Cierre del evento y entrega de presentes</div>
+                <div class="hora">Continuo</div>
+                <div class="detalles-actividad"><strong>Reflexión:</strong> Presbítero M.O. Javier Díaz</div>
+            </div>
+
+            <div class="actividad-item">
+                <div class="hora">Cierre</div>
+                <div class="detalles-actividad" style="font-weight: 600; color: var(--morado-principal);">🏁 Entrega de presentes y clausura del evento</div>
             </div>
         </div>
 
     </main>
 
-    <!-- PIE DE PÁGINA SOLEMNE -->
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 Iglesia de Dios Pentecostal M.I. - Región Venezuela</p>
+        <p>&copy; 2026 Iglesia de Dios Pentecostal M.I. — Región Venezuela</p>
         <p>Zona Centro Occidente III | Barinas</p>
-        <div class="lema-fina    </footer>
+        <div class="lema-final">El Valor de la Unidad</div>
+    </footer>
 
 </body>
 </html>
